@@ -1,5 +1,6 @@
 const teamsEl = document.querySelector('#teams')
 const episodesEl = document.querySelector('#episodes')
+const survivorsEl = document.querySelector('#survivors')
 const loadingEl = document.querySelector('#loading')
 let loading = false
 
@@ -22,14 +23,19 @@ const addTeamsToDOM = async () => {
         const div = document.createElement('div')
         div.className = 'team'
 
-        const picks = team.picks.map( pick => `<li>${pick.name} - ${pick.points}</li>`).join('')
+        const picks = team.picks.map( pick => `<li>${pick.name} - ${pick.points} pts</li>`).join('')
 
         div.innerHTML = `
-            <h3>[${team.rank}] ${team.name} - ${team.score} pts</h3>
-            <h4>${team.id}</h4>
+        <div class="list-group-item">
+            <div class="d-flex w-100 justify-content-between align-items-center">
+                <h4>[${team.rank}]</h4>
+                <h3>${team.name}</h3>
+                <small class="ms-auto">${team.score} pts</small>
+            </div>
             <ul>
             ${picks}
             </ul>
+        </div>
         `
         teamsEl.appendChild(div)
     })
@@ -79,14 +85,40 @@ const addEpisodesToDOM = async () => {
             }).join('')
 
         div.innerHTML = `
-            <h3>${episode.name}</h3>
-            <h4>${episode.id}</h4>
-            <h5>${episode.date}</h5>
-            <ul>${events}</ul>
+        <div class="card pb-3">
+            <!-- <img src="..." class="card-img-top" alt="..."> -->
+            <div class="card-body">
+                <h3 class="card-title">${episode.name}</h3>
+                <p class="card-text"><small class="text-muted">${episode.date}</small></p>
+                <ul>${events}</ul>
+            </div>
+        </div>
         `
         episodesEl.appendChild(div)
     })
 }
 
+const addSurvivorsToDOM = async() => {
+    const survivors = await getSurvivorsFromBackend()
+
+    survivors.forEach(survivor => {
+        const div = document.createElement('div')
+        div.className = 'survivor'
+
+        div.innerHTML = `
+        <div class="card pb-3">
+            <!-- <img src="..." class="card-img-top" alt="..."> -->
+            <div class="card-body">
+                <h3 class="card-title">${survivor.name}</h3>
+                <p class="card-text"><small class="text-muted">${survivor.points} pts</small></p>
+            </div>
+        </div>
+        `
+
+        survivorsEl.appendChild(div)
+    })
+}
+
 addTeamsToDOM()
 addEpisodesToDOM()
+addSurvivorsToDOM()

@@ -5,25 +5,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <title>Mermimor</title>
 </head>
 <body>
-    <header>
-        <h1>Mermimor</h1>
-    </header>
-    
-    <main>
-        <h2>Teams</h2>
-        <div id="teams"></div>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand">Mermimor</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="navbar-item">
+                    <a href="#" class="nav-link active">Home</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#standings" class="nav-link">Standings</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#episodes" class="nav-link">Episodes</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#survivors" class="nav-link">Survivors</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
-        <h2>Episodes</h2>
-        <div id="episodes"></div>
+    <main class="pt-5">
+        <section class="standings container"  id="standings">
+            <h2>Standings</h2>
+            <small>as of 2021-06-10 @ 10:36am</small>
+            <div class="list-group">
+                <div id="teams"></div>
+            </div>
+        </section>
+        
+        <section class="episodes container">
+            <h2>Episodes</h2>
+            <div id="episodes"></div>
+        </section>
+
+        <section class="survivors container">
+            <h2>Survivors</h2>
+            <div id="survivors"></div>
+        </section>
 
         
         <div id="loading"><h3>Loading...</h3></div>
     </main>
     
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

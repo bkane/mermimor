@@ -67,7 +67,14 @@ const getTeams = async() => {
 const getEpisodes = async() => {
     const events = await getEvents()
 
-    const episodesRequest = await notion.databases.query({ database_id: episodesDB })
+    const episodesRequest = await notion.databases.query({ 
+        database_id: episodesDB, 
+        sorts: [
+        {
+          property: 'Air Date',
+          direction: 'ascending',
+        }]
+    })
 
     const episodes = episodesRequest.results.map(episode => {
         return {
