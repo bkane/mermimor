@@ -24,7 +24,7 @@ const getSurvivors = async() => {
         return { 
             name: survivor.properties.Name.title[0].text.content,
             id: survivor.id,
-            team_id: survivor.properties.Team.relation[0]?.id,
+            team_id: survivor.properties.Team?.relation[0]?.id,
             points: points
         }
     })

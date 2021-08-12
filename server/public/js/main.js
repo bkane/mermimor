@@ -6,7 +6,7 @@ let loading = false
 
 const getTeamsFromBackend = async () => {
     loading = true
-    const res = await fetch('http://localhost:5000/teams')
+    const res = await fetch('http://localhost:5000/api/teams')
     const data = await res.json()
     loading = false
     return data
@@ -43,7 +43,7 @@ const addTeamsToDOM = async () => {
 
 const getSurvivorsFromBackend = async () => {
     loading = true
-    const res = await fetch('http://localhost:5000/survivors')
+    const res = await fetch('http://localhost:5000/api/survivors')
     const data = await res.json()
     loading = false
     return data
@@ -51,7 +51,7 @@ const getSurvivorsFromBackend = async () => {
 
 const getEventsFromBackend = async () => {
     loading = true
-    const res = await fetch('http://localhost:5000/events')
+    const res = await fetch('http://localhost:5000/api/events')
     const data = await res.json()
     loading = false
     return data
@@ -59,7 +59,7 @@ const getEventsFromBackend = async () => {
 
 const getEpisodesFromBackend = async () => {
     loading = true
-    const res = await fetch('http://localhost:5000/episodes')
+    const res = await fetch('http://localhost:5000/api/episodes')
     const data = await res.json()
     loading = false
     return data
