@@ -1,9 +1,9 @@
 <template>
-  <div class="home">
+  <div class="home">  
     <Navbar />
-      <section class="container mt-5">
-        <router-view></router-view>
-      </section>
+    <section class="container mt-5">
+      <router-view></router-view>
+    </section>
   </div>
 </template>
 

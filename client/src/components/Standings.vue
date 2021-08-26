@@ -1,14 +1,25 @@
 <template>
-    <div>
-        <h1>Standings</h1>
-        <StandingsEntry
-            v-for="entry in teams"
-            :key="entry.id"
-            :name="entry.name"
-            :rank="entry.rank"
-            :picks="entry.picks"
-            :score="entry.score" /> 
-    </div>
+    <div class="">
+        <h1 class="text-center my-5 pt-5">Standings</h1>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-1 h3 text-center">Rank</div>
+                <div class="col h3">Team</div>
+                <div class="col-1 h3 text-center">Points</div>
+            </div>
+
+            <StandingsEntry
+                v-for="(entry, index) in teams"
+                :key="entry.id"
+                :id="index"
+                :name="entry.name"
+                :rank="entry.rank"
+                :picks="entry.picks"
+                :score="entry.score" /> 
+                </div>
+
+        </div>
 </template>
 
 <script>

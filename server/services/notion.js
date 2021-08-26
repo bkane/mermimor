@@ -53,13 +53,15 @@ const getTeams = async() => {
     teams.sort( (a, b) => b.score - a.score || a.name.localeCompare(b.name))
 
     let curRank = 1
-    let curScore = 0
+    let curScore = teams[0].score
     for (let i = 0; i < teams.length; i++) {
-        teams[i].rank = curRank;
-
-        if (teams[i].score > curScore) {
+        if (teams[i].score == curScore) {
+            teams[i].rank = curRank;
+        }
+        else {
             curScore = teams[i].score
-            curRank += 1
+            curRank = i + 1
+            teams[i].rank = curRank
         }
     }
 
