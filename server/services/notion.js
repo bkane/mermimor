@@ -20,12 +20,14 @@ const getSurvivors = async() => {
         let acc = 0
         const filtered_events = events.filter(event => event.survivor_ids.includes(survivor.id))
         const points = filtered_events.reduce( (acc, e) => acc + e.points, 0)
+        const voted_out = filtered_events.filter(event => event.type == "Voted Out")[0]?.episode_id
 
         return { 
             name: survivor.properties.Name.title[0].text.content,
             id: survivor.id,
             team_id: survivor.properties.Team?.relation[0]?.id,
-            points: points
+            points: points,
+            voted_out: voted_out
         }
     })
 
