@@ -5,8 +5,10 @@
             <h3>{{name}}</h3>
             <small class="ms-auto">{{score}} pts</small>
         </div>
-        <ul>
-        {{picks}}
+        
+        <ul v-for="pick in picks"
+        :key="pick.id">
+            <li>{{pick.name}} - {{pick.points}} pts</li>
         </ul>
     </div>
 </template>

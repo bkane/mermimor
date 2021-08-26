@@ -38,13 +38,15 @@ const getTeams = async() => {
     const teamsRequest = await notion.databases.query({ database_id: teamsDB})
 
     const teams = teamsRequest.results.map(team => {
-        const picks = survivors.filter(s => s.team_id == team.id).map(s => { return {name: s.name, id: s.id, points: s.points}})
-        const score = picks.reduce( (acc, pick) => acc + pick.points, 0)
+        const picks = survivors.filter(s => s.team_id == team.id)
+                                .map(s => { return {name: s.name, id: s.id, points: s.points}})
+                                .sort((a,b) => b.points - a.points)
+        const teamScore = picks.reduce( (acc, pick) => acc + pick.points, 0)
         return { 
             name: team.properties.Name.title[0].text.content,
             id: team.id,
             picks: picks,
-            score: score
+            score: teamScore
         }
     })
 
