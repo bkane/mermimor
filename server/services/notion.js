@@ -27,9 +27,12 @@ const getSurvivors = async() => {
             id: survivor.id,
             team_id: survivor.properties.Team?.relation[0]?.id,
             points: points,
-            voted_out: voted_out
+            voted_out: voted_out,
+            photo: survivor.properties.Photo.files[0]?.external.url
         }
     })
+
+    survivors.sort( (a, b) => a.name.localeCompare(b.name) )
 
     return survivors
 }

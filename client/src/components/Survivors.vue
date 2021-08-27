@@ -6,6 +6,7 @@
           <Survivor 
           v-for="survivor in survivors"
           :key="survivor.id"
+          :photo_url="survivor.photo"
           :name="survivor.name"
           :points="survivor.points"
           :team_id="survivor.team_id"
