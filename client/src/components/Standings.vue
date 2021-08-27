@@ -1,12 +1,13 @@
 <template>
-    <div class="">
-        <h1 class="text-center my-5 pt-5">Standings</h1>
+    <div class="row px-2">
+        <h1 class="text-center mb-5">Standings</h1>
 
-        <div class="container">
+        <div class="col-lg"></div>
+        <div class="col-lg-6">
             <div class="row">
-                <div class="col-1 h3 text-center">Rank</div>
+                <div class="col-2 h3 text-start px-0">Rank</div>
                 <div class="col h3">Team</div>
-                <div class="col-1 h3 text-center">Points</div>
+                <div class="col-2 h3 text-center px-0">Points</div>
             </div>
 
             <StandingsEntry
@@ -17,9 +18,10 @@
                 :rank="entry.rank"
                 :picks="entry.picks"
                 :score="entry.score" /> 
-                </div>
-
         </div>
+        <div class="col-lg"></div>
+    </div>
+
 </template>
 
 <script>

@@ -1,5 +1,6 @@
 <template>
-    <div class="col-lg-4 col-md-6 col-sm-12 flex-grow-0 flex-shrink-0">
+    <!-- <div class="col-lg-4 col-md-6 col-sm-12 flex-grow-0 flex-shrink-0"> -->
+    <div class="col">
         <div class="card pb-3 mx-auto" style="width: 18rem;">
             <!-- <img src="..." class="card-img-top" alt="..."> -->
             <div class="card-body">

@@ -1,11 +1,11 @@
 <template>
     <div class="row">
-        <div class="col-1 fs-3 text-center">
+        <div class="col-2 fs-3 text-start">
             {{rank}}
         </div>
 
         <div class="col">
-            <h3 class="btn btn-primary" data-toggle="collapse" :href="'#collapse' + id">{{name}}</h3>
+            <h3 class="btn btn-primary" data-bs-toggle="collapse" :href="'#collapse' + id">{{name}}</h3>
 
             <div class="collapse" :id="'collapse' + id">
                 <ul v-for="pick in picks"
@@ -16,7 +16,7 @@
 
         </div>
 
-        <div class="col-1  text-center bg-light"> 
+        <div class="col-2 text-center"> 
             <small class="ms-auto">{{score}} pts</small>
         </div>
         

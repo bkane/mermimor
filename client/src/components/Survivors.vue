@@ -1,8 +1,8 @@
 <template>
-    <div>
-        <h1 class="text-center my-5 pt-5">Survivors</h1>
+    <div class="row">
+        <h1 class="text-center">Survivors</h1>
 
-        <div class="row d-flex flex-wrap gy-5">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-2 g-lg-4 d-flex flex-wrap">
           <Survivor 
           v-for="survivor in survivors"
           :key="survivor.id"
