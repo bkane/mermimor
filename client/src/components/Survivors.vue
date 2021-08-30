@@ -4,13 +4,16 @@
 
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-2 g-lg-4 d-flex flex-wrap">
           <Survivor 
-          v-for="survivor in survivors"
+          v-for="(survivor, index) in survivors"
           :key="survivor.id"
+          :id="index"
           :photo_url="survivor.photo"
           :name="survivor.name"
           :points="survivor.points"
           :team_id="survivor.team_id"
           :voted_out="survivor.voted_out"
+          :age="survivor.age"
+          :bio="survivor.bio"
           :team_names="team_names" 
           :episode_names="episode_names" />
         </div>

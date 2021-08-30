@@ -28,7 +28,9 @@ const getSurvivors = async() => {
             team_id: survivor.properties.Team?.relation[0]?.id,
             points: points,
             voted_out: voted_out,
-            photo: survivor.properties.Photo.files[0]?.external.url
+            photo: survivor.properties.Photo.files[0]?.external.url,
+            age: survivor.properties.Age.number,
+            bio: survivor.properties.Bio.rich_text[0]?.text.content
         }
     })
 
