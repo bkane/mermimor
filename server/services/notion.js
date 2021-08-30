@@ -93,7 +93,7 @@ const getEpisodes = async() => {
             name: episode.properties.Name.title[0].text.content,
             id: episode.id,
             date: episode.properties["Air Date"].date.start,
-            events: events.filter( e => e.episode_id == episode.id).map(e => { return { name: e.name, type: e.type, points: e.points, survivor_ids: e.survivor_ids }})
+            events: events.filter( e => e.episode_id == episode.id)
         }
     })
 
@@ -106,8 +106,12 @@ const getEvents = async() => {
     const eventsRequest = await notion.databases.query({ database_id: eventsDB })
 
     const events = eventsRequest.results.map( event => {
+
+        const css_class = event.properties.Type.select.name.replace(/\s+/g, '').toLowerCase();
+
         return {
             name: event.properties.Name.title[0].text.content,
+            css_class: css_class,
             id: event.id,
             episode_id: event.properties.Episode.relation[0]?.id,
             type: event.properties.Type.select.name,
