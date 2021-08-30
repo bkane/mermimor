@@ -26,6 +26,9 @@
                     <li class="navbar-item">
                         <router-link to="/survivors" class="nav-link">Survivors</router-link>
                     </li>
+                    <li class="navbar-item">
+                        <router-link to="/scoring" class="nav-link">Scoring</router-link>
+                    </li>
                 </ul>
             </div>
         </div>

@@ -101,14 +101,7 @@ const getEpisodes = async() => {
 }
 
 const getEvents = async() => {
-    const scoringRequest = await notion.databases.query({ database_id: scoringDB })
-
-    const scoringRules = scoringRequest.results.map( rule => {
-        return {
-            name: rule.properties.Name.title[0].text.content,
-            points: rule.properties.Points.number
-        }
-    })
+    const scoringRules = await getScoringRules()
 
     const eventsRequest = await notion.databases.query({ database_id: eventsDB })
 
@@ -124,6 +117,21 @@ const getEvents = async() => {
     })
 
     return events
+}
+
+const getScoringRules = async() => {
+    const scoringRequest = await notion.databases.query( { database_id: scoringDB })
+
+    const scoringRules = scoringRequest.results.map( rule => {
+        return {
+            name: rule.properties.Name.title[0].text.content,
+            points: rule.properties.Points.number
+        }
+    })
+
+    scoringRules.sort((a, b) => b.points - a.points)
+
+    return scoringRules
 }
 
 
@@ -167,4 +175,4 @@ const getEvents = async() => {
 // }
 
 
-module.exports = { getTeams, getEpisodes, getSurvivors, getEvents }
+module.exports = { getTeams, getEpisodes, getSurvivors, getEvents, getScoringRules }

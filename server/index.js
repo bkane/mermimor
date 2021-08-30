@@ -35,4 +35,10 @@ app.get('/api/events', async (req, res) => {
     res.json(events)
 })
 
+app.get('/api/scoring', async (req, res) => {
+    const scoringRules = await mermimor.getScoringRules()
+
+    res.json(scoringRules)
+})
+
 app.listen(PORT, console.log(`Server started on port ${PORT}`))
