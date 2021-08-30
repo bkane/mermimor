@@ -28,7 +28,6 @@ jobs:
               npm ci
               npm run build
               cd dist
-              if [ "none" !=  ${{ inputs.cname }} ]; then echo '${{ inputs.cname }}' > CNAME; fi
               git config --global user.email "benjaminkane@gmail.com"
               git config --global user.name "bkane"
               git init
