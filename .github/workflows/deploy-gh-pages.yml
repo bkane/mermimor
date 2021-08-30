@@ -32,6 +32,6 @@ jobs:
               git config --global user.name "bkane"
               git init
               git add -A
-              git commit -m '${{ inputs.gitmsg }}'
+              git commit -m 'deploy'
               git push -f https://github.com/bkane/mermimor.git master:gh-pages
         shell: bash
