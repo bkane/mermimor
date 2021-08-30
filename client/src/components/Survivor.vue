@@ -6,15 +6,33 @@
             <div class="card-body">
                 <img v-if="photo_url" :src='photo_url' class='img-fluid' :class='{ votedout: voted_out }' />
                 <h3 class="card-title text-center">{{name}}</h3>
-                <p class="card-text"><small class="text-muted">{{points}} pts</small></p>
 
-                <p v-if="team_names.filter(t => t.id == team_id)[0]">
-                    Team: {{team_names.filter(t => t.id == team_id)[0]?.name}}
-                </p>
-                <p v-else>Team: <em>undrafted</em></p>
+                <!-- Tribes -->
+                <div class="text-center">
+                    <span v-for="tribe in tribes"
+                        :key="tribe.name"
+                        :class="tribe"
+                        class="badge m-1">
+                        {{tribe}}
+                    </span>
+                </div>
 
+                <!-- Points -->
+                <p class="card-text text-center">{{points}} pts</p>
+
+                <!-- Draft team -->
+                <div>
+                    <p class="" v-if="team_names.filter(t => t.id == team_id)[0]">
+                        Team: {{team_names.filter(t => t.id == team_id)[0]?.name}}
+                    </p>
+                    <p class="text-muted" v-else>Team: <em>undrafted</em></p>
+                </div>
+
+
+                <!-- Voted out episode -->
                 <p v-if="voted_out">Voted out: {{episode_names.filter(e => e.id == voted_out)[0].name}}</p>
 
+                <!-- Age and Bio -->
                 <!-- <div class="accordion">
                     <div class="accordion-item">
                         <p class="accordion-header">
@@ -39,7 +57,7 @@
 <script>
 export default {
     name: 'Survivor',
-    props: ['name', 'id', 'points', 'team_id', 'team_names', 'episode_names', 'voted_out', 'photo_url', 'age', 'bio']
+    props: ['name', 'id', 'points', 'team_id', 'team_names', 'episode_names', 'voted_out', 'photo_url', 'age', 'bio', 'tribes']
 }
 </script>
 
@@ -47,4 +65,19 @@ export default {
 .votedout {
     filter: grayscale(100%);
 }
+
+.Heroes {
+    background: rgb(152, 152, 216);
+}
+
+.Villains {
+    background: rgb(168, 31, 31);
+    color: whitesmoke;
+}
+
+.Yin {
+    background: rgb(39, 39, 36);
+    color: rgb(240, 240, 240);
+}
+
 </style>

@@ -30,7 +30,8 @@ const getSurvivors = async() => {
             voted_out: voted_out,
             photo: survivor.properties.Photo.files[0]?.external.url,
             age: survivor.properties.Age.number,
-            bio: survivor.properties.Bio.rich_text[0]?.text.content
+            bio: survivor.properties.Bio.rich_text[0]?.text.content,
+            tribes: survivor.properties.Tribe.multi_select.map(t => t.name)
         }
     })
 

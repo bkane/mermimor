@@ -14,6 +14,7 @@
           :voted_out="survivor.voted_out"
           :age="survivor.age"
           :bio="survivor.bio"
+          :tribes="survivor.tribes"
           :team_names="team_names" 
           :episode_names="episode_names" />
         </div>
