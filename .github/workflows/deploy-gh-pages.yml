@@ -37,5 +37,5 @@ jobs:
               git init
               git add -A
               git commit -m 'deploy'
-              git push -f https://github.com/bkane/mermimor.git master:gh-pages
+              git push -f https://kane::${{ secrets.GITHUB_TOKEN }}github.com/bkane/mermimor.git master:gh-pages
         shell: bash
