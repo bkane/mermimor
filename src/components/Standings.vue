@@ -17,39 +17,38 @@
                 :name="entry.name"
                 :rank="entry.rank"
                 :picks="entry.picks"
-                :score="entry.score" /> 
+                :score="entry.score"
+            />
         </div>
         <div class="col-lg"></div>
     </div>
-
 </template>
 
 <script>
-import StandingsEntry from './StandingsEntry.vue'
+import axios from "axios";
+import StandingsEntry from "./StandingsEntry.vue";
 
 export default {
-    name: 'Standings',
+    name: "Standings",
     components: {
-        StandingsEntry
+        StandingsEntry,
     },
     data() {
         return {
-            teams: []
-        }
+            teams: [],
+        };
     },
     methods: {
         async fetchData() {
-            const teamsRequest = await fetch('api/teams')
-            this.teams = await teamsRequest.json()
-            console.log(this.teams)
-        }
+            const teamsRequest = await axios.get("api/teams");
+            this.teams = teamsRequest.data;
+            console.log(this.teams);
+        },
     },
     async created() {
-        await this.fetchData()
-    }
-}
+        await this.fetchData();
+    },
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

@@ -13,37 +13,37 @@
                 v-for="entry in scoringRules"
                 :key="entry.id"
                 :name="entry.name"
-                :points="entry.points" /> 
+                :points="entry.points"
+            />
         </div>
         <div class="col-lg"></div>
     </div>
 </template>
 
 <script>
-import ScoringEntry from './ScoringEntry.vue'
+import axios from "axios";
+import ScoringEntry from "./ScoringEntry.vue";
 export default {
-    name: 'Scoring',
+    name: "Scoring",
     components: {
-        ScoringEntry
+        ScoringEntry,
     },
-  data() {
-    return {
-      scoringRules: []
-    }
-  },
-  methods: {
-    async fetchData() {
-            const scoringRequest = await fetch('api/scoring')
-            this.scoringRules = await scoringRequest.json()
-            console.log(this.scoringRules)
-    }
-  },
-  async created() {
-    await this.fetchData()
-  }
-}
+    data() {
+        return {
+            scoringRules: [],
+        };
+    },
+    methods: {
+        async fetchData() {
+            const scoringRequest = await axios.get("api/scoring");
+            this.scoringRules = scoringRequest.data;
+            console.log(this.scoringRules);
+        },
+    },
+    async created() {
+        await this.fetchData();
+    },
+};
 </script>
 
-<style>
-
-</style>
+<style></style>
