@@ -5,7 +5,7 @@ import Survivors from "./components/Survivors.vue"
 import Scoring from "./components/Scoring.vue"
 
 export default createRouter({
-    history: createWebHistory('/mermimor/'),
+    history: createWebHashHistory('/mermimor/'),
     routes: [
         {
             path: '/',
