@@ -1,6 +1,7 @@
 <template>
     <div>
-        <h1>Episodes</h1>
+        <h1 class="text-center pb-4">Episodes</h1>
+        <div v-if="loading"><p class="loader mx-auto"></p></div>
         <Episode
             v-for="episode in episodes"
             :key="episode.id"
@@ -25,6 +26,7 @@ export default {
         return {
             episodes: [],
             survivor_names: [],
+            loading: true,
         };
     },
     methods: {
@@ -42,6 +44,8 @@ export default {
             const episodesRequest = await axios.get("api/episodes");
             this.episodes = episodesRequest.data;
             console.log(this.episodes);
+
+            this.loading = false;
         },
     },
     async created() {

@@ -22,6 +22,7 @@
         </div>
         <div class="col-lg"></div>
     </div>
+    <div v-if="loading"><p class="loader mx-auto"></p></div>
 </template>
 
 <script>
@@ -36,6 +37,7 @@ export default {
     data() {
         return {
             teams: [],
+            loading: true,
         };
     },
     methods: {
@@ -43,6 +45,8 @@ export default {
             const teamsRequest = await axios.get("api/teams");
             this.teams = teamsRequest.data;
             console.log(this.teams);
+
+            this.loading = false;
         },
     },
     async created() {

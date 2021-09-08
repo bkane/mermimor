@@ -1,7 +1,7 @@
 <template>
     <div class="row">
         <h1 class="text-center">Survivors</h1>
-
+        <div v-if="loading"><p class="loader mx-auto"></p></div>
         <div
             class="
                 row row-cols-1 row-cols-md-2 row-cols-lg-3
@@ -43,6 +43,7 @@ export default {
             survivors: [],
             team_names: [],
             episode_names: [],
+            loading: true,
         };
     },
     methods: {
@@ -64,6 +65,8 @@ export default {
             const survivorsRequest = await axios.get("api/survivors");
             this.survivors = survivorsRequest.data;
             console.log(this.survivors);
+
+            this.loading = false;
         },
     },
     async created() {

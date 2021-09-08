@@ -18,6 +18,8 @@
         </div>
         <div class="col-lg"></div>
     </div>
+
+    <div v-if="loading"><p class="loader mx-auto"></p></div>
 </template>
 
 <script>
@@ -31,6 +33,7 @@ export default {
     data() {
         return {
             scoringRules: [],
+            loading: true,
         };
     },
     methods: {
@@ -38,6 +41,8 @@ export default {
             const scoringRequest = await axios.get("api/scoring");
             this.scoringRules = scoringRequest.data;
             console.log(this.scoringRules);
+
+            this.loading = false;
         },
     },
     async created() {
