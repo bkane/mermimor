@@ -1,6 +1,6 @@
 <template>
     <div class="row px-2">
-        <h1 class="text-center mb-5">Standings</h1>
+        <h1 class="text-center mb-5">{{ seasonTitle }} Standings</h1>
 
         <div class="col-lg"></div>
         <div class="col-lg-6">

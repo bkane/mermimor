@@ -17,7 +17,7 @@ export default {
         Navbar,
     },
     created() {
-        console.log("created");
+        console.log(`created ${this.seasonTitle}`);
         axios.defaults.baseURL = process.env.VUE_APP_API_BASE || "nah";
     },
 };
