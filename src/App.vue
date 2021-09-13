@@ -4,6 +4,9 @@
         <section class="container mt-5">
             <router-view></router-view>
         </section>
+        <p class="text-end small fw-light text-muted px-2 mt-3">
+            Cache time: {{ cacheTime }}
+        </p>
     </div>
 </template>
 
@@ -13,12 +16,19 @@ import Navbar from "./components/Navbar.vue";
 
 export default {
     name: "App",
+    data() {
+        return {
+            cacheTime: "",
+        };
+    },
     components: {
         Navbar,
     },
-    created() {
+    async created() {
         console.log(`created ${this.seasonTitle}`);
         axios.defaults.baseURL = process.env.VUE_APP_API_BASE || "nah";
+        const cacheTimeRequest = await axios.get("/api/cacheTime");
+        this.cacheTime = new Date(cacheTimeRequest.data).toLocaleString("EST");
     },
 };
 </script>
@@ -31,6 +41,7 @@ export default {
     width: 42px;
     height: 42px;
     animation: spin 2s linear infinite;
+    display: none;
 }
 
 @keyframes spin {
