@@ -4,9 +4,6 @@
         <section class="container mt-5">
             <router-view></router-view>
         </section>
-        <p class="text-end small fw-light text-muted px-2 mt-3">
-            Cache time: {{ cacheTime }}
-        </p>
     </div>
 </template>
 
@@ -40,8 +37,13 @@ export default {
     border-radius: 50%;
     width: 42px;
     height: 42px;
-    animation: spin 2s linear infinite;
-    display: none;
+    opacity: 0;
+    animation-name: spin, fadeIn;
+    animation-duration: 2s, 600ms;
+    animation-timing-function: linear, ease;
+    animation-iteration-count: infinite, 1;
+    animation-delay: 400ms;
+    animation-fill-mode: forwards;
 }
 
 @keyframes spin {
@@ -50,6 +52,15 @@ export default {
     }
     100% {
         transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
 </style>
