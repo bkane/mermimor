@@ -9,13 +9,7 @@
                 <div class="col-2 h3 text-center">Points</div>
             </div>
 
-            <ScoringEntry
-                v-for="entry in scoringRules"
-                :key="entry.id"
-                :name="entry.name"
-                :points="entry.points"
-                :css_class="entry.css"
-            />
+            <ScoringEntry v-for="entry in scoringRules" :key="entry.id" :name="entry.name" :points="entry.points" :css_class="entry.css" />
         </div>
         <div class="col-lg"></div>
     </div>

@@ -12,7 +12,7 @@
 <script>
 export default {
     name: "ScoringEntry",
-    props: ["name", "points", "css_class"],
+    props: ["name", "points", "css_class"]
 };
 </script>
 

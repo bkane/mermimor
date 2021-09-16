@@ -20,13 +20,13 @@ import Episode from "./Episode.vue";
 export default {
     name: "Episodes",
     components: {
-        Episode,
+        Episode
     },
     data() {
         return {
             episodes: [],
             survivor_names: [],
-            loading: true,
+            loading: true
         };
     },
     methods: {
@@ -36,7 +36,7 @@ export default {
             console.log(survivorsRequest);
 
             const survivors = survivorsRequest.data;
-            this.survivor_names = survivors.map((s) => {
+            this.survivor_names = survivors.map(s => {
                 return { id: s.id, name: s.name };
             });
             console.log(this.survivor_names);
@@ -46,13 +46,12 @@ export default {
             console.log(this.episodes);
 
             this.loading = false;
-        },
+        }
     },
     async created() {
         await this.fetchData();
-    },
+    }
 };
 </script>
 
-<style>
-</style>
+<style></style>

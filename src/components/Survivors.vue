@@ -36,28 +36,28 @@ import Survivor from "./Survivor.vue";
 export default {
     name: "Survivors",
     components: {
-        Survivor,
+        Survivor
     },
     data() {
         return {
             survivors: [],
             team_names: [],
             episode_names: [],
-            loading: true,
+            loading: true
         };
     },
     methods: {
         async fetchData() {
             const teamsRequest = await axios.get("api/teams");
             const teams = teamsRequest.data;
-            this.team_names = teams.map((t) => {
+            this.team_names = teams.map(t => {
                 return { id: t.id, name: t.name };
             });
             console.log(this.team_names);
 
             const episodesRequest = await axios.get("api/episodes");
             const episodes = episodesRequest.data;
-            this.episode_names = episodes.map((e) => {
+            this.episode_names = episodes.map(e => {
                 return { id: e.id, name: e.name };
             });
             console.log(this.episode_names);
@@ -67,11 +67,11 @@ export default {
             console.log(this.survivors);
 
             this.loading = false;
-        },
+        }
     },
     async created() {
         await this.fetchData();
-    },
+    }
 };
 </script>
 

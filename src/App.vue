@@ -14,12 +14,12 @@ import Navbar from "./components/Navbar.vue";
 export default {
     name: "App",
     components: {
-        Navbar,
+        Navbar
     },
     async created() {
         console.log(`created ${this.seasonTitle}`);
         axios.defaults.baseURL = process.env.VUE_APP_API_BASE || "nah";
-    },
+    }
 };
 </script>
 

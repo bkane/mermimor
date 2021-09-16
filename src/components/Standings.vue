@@ -4,12 +4,6 @@
 
         <div class="col-lg"></div>
         <div class="col-lg-6">
-            <!-- <div class="row">
-                <div class="col-2 h3 text-start px-0">Rank</div>
-                <div class="col h3">Team</div>
-                <div class="col-2 h3 text-center px-0">Points</div>
-            </div> -->
-
             <table class="table table-striped">
                 <StandingsEntry
                     v-for="(entry, index) in teams"
