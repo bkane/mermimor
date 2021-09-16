@@ -14,6 +14,7 @@
                 :key="entry.id"
                 :name="entry.name"
                 :points="entry.points"
+                :css_class="entry.css"
             />
         </div>
         <div class="col-lg"></div>
@@ -28,12 +29,12 @@ import ScoringEntry from "./ScoringEntry.vue";
 export default {
     name: "Scoring",
     components: {
-        ScoringEntry,
+        ScoringEntry
     },
     data() {
         return {
             scoringRules: [],
-            loading: true,
+            loading: true
         };
     },
     methods: {
@@ -43,11 +44,11 @@ export default {
             console.log(this.scoringRules);
 
             this.loading = false;
-        },
+        }
     },
     async created() {
         await this.fetchData();
-    },
+    }
 };
 </script>
 

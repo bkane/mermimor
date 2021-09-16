@@ -13,19 +13,12 @@ import Navbar from "./components/Navbar.vue";
 
 export default {
     name: "App",
-    data() {
-        return {
-            cacheTime: "",
-        };
-    },
     components: {
         Navbar,
     },
     async created() {
         console.log(`created ${this.seasonTitle}`);
         axios.defaults.baseURL = process.env.VUE_APP_API_BASE || "nah";
-        const cacheTimeRequest = await axios.get("/api/cacheTime");
-        this.cacheTime = new Date(cacheTimeRequest.data).toLocaleString("EST");
     },
 };
 </script>

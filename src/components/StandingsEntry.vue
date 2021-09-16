@@ -1,38 +1,35 @@
 <template>
-    <div class="row">
-        <div class="col-2 fs-3 text-start">
-            {{ rank }}
-        </div>
-
-        <div class="col">
-            <h3
-                class="btn btn-primary"
-                data-bs-toggle="collapse"
-                :href="'#collapse' + id"
-            >
-                {{ name }}
-            </h3>
-
-            <div class="collapse" :id="'collapse' + id">
-                <ul v-for="pick in picks" :key="pick.id">
-                    <li>{{ pick.name }} - {{ pick.points }} pts</li>
-                </ul>
-                <p v-if="picks.length == 0">No picks yet</p>
-            </div>
-        </div>
-
-        <div class="col-2 text-center">
-            <small class="ms-auto">{{ score }} pts</small>
-        </div>
-    </div>
+    <thead class="table-dark">
+        <tr>
+            <th class="h4 text-start">#{{ rank }}</th>
+            <th class="h4" colspan="2">{{ name }}</th>
+            <th class="h4 text-end">{{ score }} pts</th>
+        </tr>
+    </thead>
+    <tbody class="table-light">
+        <tr v-for="pick in picks" :key="pick.id">
+            <td></td>
+            <td class="py-0 ps-4" :class="{ 'text-decoration-line-through': pick.voted_out }">
+                {{ pick.name }}
+            </td>
+            <td class="p-0 pe-5 text-start">{{ pick.points }}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="4" class="spacer"></td>
+        </tr>
+    </tbody>
 </template>
 
 <script>
 export default {
     name: "StandingsEntry",
-    props: ["id", "rank", "name", "score", "picks"],
+    props: ["id", "rank", "name", "score", "picks"]
 };
 </script>
 
 <style>
+.spacer {
+    border: none;
+}
 </style>
