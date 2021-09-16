@@ -8,29 +8,16 @@
             </p>
             <div v-for="event in events" :key="event.name" class="mb-3">
                 <!-- Event -->
-                <button
-                    class="btn btn-outline-dark"
-                    data-bs-toggle="collapse"
-                    :data-bs-target="'#event' + event.id"
-                >
-                    <span class="badge" :class="event.css_class">{{
-                        event.name
-                    }}</span>
+                <button class="btn btn-outline-dark" data-bs-toggle="collapse" :data-bs-target="'#event' + event.id">
+                    <span class="badge event" :class="event.css_class">{{ event.name }}</span>
                     - {{ event.points }} pts
                 </button>
 
                 <!-- Survivors involved -->
                 <div class="collapse" :id="'event' + event.id">
-                    <ul
-                        v-for="survivor_id in event.survivor_ids"
-                        :key="survivor_id"
-                    >
+                    <ul v-for="survivor_id in event.survivor_ids" :key="survivor_id">
                         <li>
-                            {{
-                                survivor_names.filter(
-                                    (s) => s.id == survivor_id
-                                )[0].name
-                            }}
+                            {{ survivor_names.filter(s => s.id == survivor_id)[0].name }}
                         </li>
                     </ul>
                 </div>
@@ -42,13 +29,18 @@
 <script>
 export default {
     name: "Episode",
-    props: ["name", "date", "events", "survivor_names"],
+    props: ["name", "date", "events", "survivor_names"]
 };
 </script>
 
 <style>
 .votedout {
     background: black;
+}
+
+.event {
+    background: darkslategrey;
+    color: whitesmoke;
 }
 
 .win-reward {
@@ -64,7 +56,7 @@ export default {
     background: rgb(36, 114, 53);
     color: whitesmoke;
 }
-.win-tribal-immunity-first-place {
+.win-team-challenge-first-place {
     background: rgb(64, 197, 93);
     color: whitesmoke;
 }
@@ -98,8 +90,8 @@ export default {
     color: whitesmoke;
 }
 .first-eliminated {
-    background: rgb(255, 0, 242);
-    color: rgb(37, 36, 36);
+    background: rgb(218, 4, 207);
+    color: rgb(252, 252, 252);
 }
 .final-tribal {
     background: rgb(118, 92, 160);

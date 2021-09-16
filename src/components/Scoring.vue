@@ -2,16 +2,24 @@
     <div class="row">
         <h1 class="text-center">Scoring</h1>
 
-        <div class="col-lg"></div>
-        <div class="col-lg-6">
-            <div class="row">
-                <div class="col h3 text-start">Rule</div>
-                <div class="col-2 h3 text-center">Points</div>
-            </div>
-
-            <ScoringEntry v-for="entry in scoringRules" :key="entry.id" :name="entry.name" :points="entry.points" :css_class="entry.css" />
+        <!-- <div class="col-lg"></div>
+        <div class="col-lg-10"> -->
+        <div class="row">
+            <div class="col-2 h3 text-center">Points</div>
+            <div class="col-3 h3 text-start">Rule</div>
+            <div class="col h3 text-start">Description</div>
         </div>
-        <div class="col-lg"></div>
+
+        <ScoringEntry
+            v-for="entry in scoringRules"
+            :key="entry.id"
+            :name="entry.name"
+            :points="entry.points"
+            :description="entry.description"
+            :css_class="entry.css"
+        />
+        <!-- </div>
+        <div class="col-lg"></div> -->
     </div>
 
     <div v-if="loading"><p class="loader mx-auto"></p></div>
