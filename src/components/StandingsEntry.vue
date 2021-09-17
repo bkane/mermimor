@@ -10,12 +10,15 @@
         <div class="col-2 h4 ps-0 text-start align-self-center">{{ score }} pts</div>
     </div>
 
-    <div class="row" v-for="pick in picks" :key="pick.id">
-        <div class="col-1"></div>
-        <div class="col-8 col-md py-0 ps-4" :class="{ 'text-decoration-line-through': pick.voted_out }">
-            {{ pick.name }}
+    <div class="picks-table">
+        <div class="row striped-row" v-for="pick in picks" :key="pick.id">
+            <div class="col-1"></div>
+            <div class="col-8 col-md py-0 ps-4" :class="{ 'text-decoration-line-through': pick.voted_out }">
+                {{ pick.name }}
+            </div>
+            <div class="col p-0 pe-5 text-start">{{ pick.points }}</div>
         </div>
-        <div class="col p-0 pe-5 text-start">{{ pick.points }}</div>
+        <div class="row spacer mb-2"></div>
     </div>
 </template>
 
@@ -29,5 +32,15 @@ export default {
 <style>
 .spacer {
     border: none;
+}
+
+.striped-row {
+    border-bottom-color: rgb(223, 224, 225);
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+
+.striped-row:nth-child(odd) {
+    background-color: rgb(236, 237, 238);
 }
 </style>
