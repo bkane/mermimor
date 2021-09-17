@@ -1,10 +1,10 @@
 <template>
-    <div class="row mb-2">
-        <div class="col-2 text-center">{{ points }}</div>
-        <div class="col-3 text-start h5 ">
+    <div class="row py-2 striped-row">
+        <div class="col-md-2 col-3 text-center align-self-center">{{ points }}</div>
+        <div class="col-md-3 col-9 text-start h5 mb-0 align-self-center">
             <span class="badge event text-wrap" :class="css_class">{{ name }}</span>
         </div>
-        <div class="col text-muted fs-6">{{ description }}</div>
+        <div class="col text-muted fs-6 align-self-center">{{ description }}</div>
     </div>
 </template>
 
