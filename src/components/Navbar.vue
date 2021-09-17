@@ -1,24 +1,29 @@
 <template>
-  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a href="#" class="navbar-brand">
                 <div class="hstack">
-                    <img src="@/assets/jeff.png" height="64" alt="jeffff" class="d-inline-block align-bottom px-3">
+                    <img src="@/assets/jeff.png" height="64" alt="jeffff" class="d-inline-block align-bottom px-3" />
                     <div class="vstack">
                         <div class="display-5 py-0">Mermimor</div>
                         <div class="navbar-text fs-6 fw-lighter fst-italic py-0">come on in guys</div>
                     </div>
                 </div>
-                
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNavDropdown"
+                ref="navbarMenuCollapse"
+            >
                 <span class="navbar-toggler-icon"></span>
             </button>
-        
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+            <nav class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="navbar-item">
-                        <router-link to="/" class="nav-link">Standings</router-link>
+                        <router-link to="/" class="nav-link navbar-link">Standings</router-link>
                     </li>
                     <li class="navbar-item">
                         <router-link to="/episodes" class="nav-link">Episodes</router-link>
@@ -30,18 +35,20 @@
                         <router-link to="/scoring" class="nav-link">Scoring</router-link>
                     </li>
                 </ul>
-            </div>
+            </nav>
         </div>
     </nav>
 </template>
 
 <script>
 export default {
-    name: 'Navbar'
-
-}
+    name: "Navbar",
+    watch: {
+        $route() {
+            this.$refs.navbarMenuCollapse.click();
+        }
+    }
+};
 </script>
 
-<style>
-
-</style>
+<style></style>
