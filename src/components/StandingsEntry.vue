@@ -1,30 +1,28 @@
 <template>
-    <thead class="table-dark">
-        <tr>
-            <th class="h4 text-start">#{{ rank }}</th>
-            <th class="h4" colspan="2">{{ name }}</th>
-            <th class="h4 text-end">{{ score }} pts</th>
-        </tr>
-    </thead>
-    <tbody class="table-light">
-        <tr v-for="pick in picks" :key="pick.id">
-            <td></td>
-            <td class="py-0 ps-4" :class="{ 'text-decoration-line-through': pick.voted_out }">
-                {{ pick.name }}
-            </td>
-            <td class="p-0 pe-5 text-start">{{ pick.points }}</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td colspan="4" class="spacer"></td>
-        </tr>
-    </tbody>
+    <div class="row bg-dark text-light">
+        <div class="col-1 h4 text-center align-self-center py-0 px-1 fs-5">#{{ rank }}</div>
+        <div class="col h4 align-self-center py-0">
+            <div class="vstack p-0">
+                {{ name }}
+                <p class="text-muted m-0 fs-6">{{ owner }}</p>
+            </div>
+        </div>
+        <div class="col-2 h4 ps-0 text-start align-self-center">{{ score }} pts</div>
+    </div>
+
+    <div class="row" v-for="pick in picks" :key="pick.id">
+        <div class="col-1"></div>
+        <div class="col-8 col-md py-0 ps-4" :class="{ 'text-decoration-line-through': pick.voted_out }">
+            {{ pick.name }}
+        </div>
+        <div class="col p-0 pe-5 text-start">{{ pick.points }}</div>
+    </div>
 </template>
 
 <script>
 export default {
     name: "StandingsEntry",
-    props: ["id", "rank", "name", "score", "picks"]
+    props: ["id", "rank", "name", "owner", "score", "picks"]
 };
 </script>
 
