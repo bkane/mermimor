@@ -10,17 +10,11 @@
                     </div>
                 </div>
             </a>
-            <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarNavDropdown"
-                ref="navbarMenuCollapse"
-            >
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <nav class="collapse navbar-collapse" id="navbarNavDropdown">
+            <nav class="collapse navbar-collapse" id="navbarNavDropdown" ref="navbarMenuCollapse">
                 <ul class="navbar-nav">
                     <li class="navbar-item">
                         <router-link to="/" class="nav-link navbar-link">Standings</router-link>
@@ -45,7 +39,7 @@ export default {
     name: "Navbar",
     watch: {
         $route() {
-            this.$refs.navbarMenuCollapse.click();
+            this.$refs.navbarMenuCollapse.classList.remove("show");
         }
     }
 };
