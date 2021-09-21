@@ -7,8 +7,8 @@
             :key="episode.id"
             :name="episode.name"
             :date="episode.date"
-            :events="episode.events"
-            :survivor_names="survivor_names"
+            :eliminations="episode.eliminations"
+            :survivors_with_filtered_events="episode.survivors_with_filtered_events"
         />
     </div>
 </template>
@@ -25,22 +25,12 @@ export default {
     data() {
         return {
             episodes: [],
-            survivor_names: [],
             loading: true
         };
     },
     methods: {
         async fetchData() {
             console.log("base url: " + axios.defaults.baseURL);
-            const survivorsRequest = await axios.get("api/survivors");
-            console.log(survivorsRequest);
-
-            const survivors = survivorsRequest.data;
-            this.survivor_names = survivors.map(s => {
-                return { id: s.id, name: s.name };
-            });
-            console.log(this.survivor_names);
-
             const episodesRequest = await axios.get("api/episodes");
             this.episodes = episodesRequest.data;
             console.log(this.episodes);

@@ -18,7 +18,7 @@
                 :name="survivor.name"
                 :points="survivor.points"
                 :team_id="survivor.team_id"
-                :voted_out="survivor.voted_out"
+                :eliminated="survivor.eliminated"
                 :age="survivor.age"
                 :bio="survivor.bio"
                 :tribes="survivor.tribes"

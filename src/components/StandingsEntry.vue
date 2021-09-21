@@ -13,7 +13,7 @@
     <div class="picks-table">
         <div class="row striped-row" v-for="pick in picks" :key="pick.id">
             <div class="col-1"></div>
-            <div class="col-8 col-md py-0 ps-4" :class="{ 'text-decoration-line-through': pick.voted_out }">
+            <div class="col-8 col-md py-0 ps-4" :class="{ 'text-decoration-line-through': pick.eliminated }">
                 {{ pick.name }}
             </div>
             <div class="col p-0 pe-5 text-start">{{ pick.points }}</div>

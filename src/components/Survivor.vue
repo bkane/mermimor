@@ -4,23 +4,13 @@
         <div class="card pb-3 mx-auto" style="width: 18rem">
             <!-- <img src="..." class="card-img-top" alt="..."> -->
             <div class="card-body">
-                <img
-                    v-if="photo_url"
-                    :src="photo_url"
-                    class="img-fluid"
-                    :class="{ votedout: voted_out }"
-                />
+                <img v-if="photo_url" :src="photo_url" class="img-fluid" :class="{ eliminated: eliminated }" />
                 <h3 class="card-title text-center">{{ name }}</h3>
                 <h5 class="text-center text-muted">{{ bio }} - {{ age }}</h5>
 
                 <!-- Tribes -->
                 <div class="text-center">
-                    <span
-                        v-for="tribe in tribes"
-                        :key="tribe.name"
-                        :class="tribe"
-                        class="badge m-1"
-                    >
+                    <span v-for="tribe in tribes" :key="tribe.name" :class="tribe" class="badge m-1">
                         {{ tribe }}
                     </span>
                 </div>
@@ -30,20 +20,17 @@
 
                 <!-- Draft team -->
                 <div>
-                    <p
-                        class=""
-                        v-if="team_names.filter((t) => t.id == team_id)[0]"
-                    >
+                    <p class="" v-if="team_names.filter(t => t.id == team_id)[0]">
                         Team:
-                        {{ team_names.filter((t) => t.id == team_id)[0]?.name }}
+                        {{ team_names.filter(t => t.id == team_id)[0]?.name }}
                     </p>
                     <p class="text-muted" v-else>Team: <em>undrafted</em></p>
                 </div>
 
                 <!-- Voted out episode -->
-                <p v-if="voted_out">
+                <p v-if="eliminated">
                     Voted out:
-                    {{ episode_names.filter((e) => e.id == voted_out)[0].name }}
+                    {{ episode_names.filter(e => e.id == eliminated)[0].name }}
                 </p>
 
                 <!-- Age and Bio -->
@@ -70,19 +57,7 @@
 <script>
 export default {
     name: "Survivor",
-    props: [
-        "name",
-        "id",
-        "points",
-        "team_id",
-        "team_names",
-        "episode_names",
-        "voted_out",
-        "photo_url",
-        "age",
-        "bio",
-        "tribes",
-    ],
+    props: ["name", "id", "points", "team_id", "team_names", "episode_names", "eliminated", "photo_url", "age", "bio", "tribes"]
 };
 </script>
 
