@@ -25,11 +25,8 @@ export default {
 
 <style>
 .loader {
-    border: 16px solid #f3f3f3;
-    border-top: 16px solid #3498db;
-    border-radius: 50%;
-    width: 42px;
-    height: 42px;
+    width: 256px;
+    height: 256px;
     opacity: 0;
     animation-name: spin, fadeIn;
     animation-duration: 2s, 600ms;

@@ -18,7 +18,9 @@
         />
     </div>
 
-    <div v-if="loading"><p class="loader mx-auto"></p></div>
+    <div v-if="loading" class="text-center">
+        <img src="@/assets/brad.png" class="loader mx-auto" />
+    </div>
 </template>
 
 <script>

@@ -1,7 +1,9 @@
 <template>
     <div class="row">
         <h1 class="text-center">Survivors</h1>
-        <div v-if="loading"><p class="loader mx-auto"></p></div>
+        <div v-if="loading" class="text-center">
+            <img src="@/assets/brad.png" class="loader mx-auto" />
+        </div>
         <div
             class="
                 row row-cols-1 row-cols-md-2 row-cols-lg-3

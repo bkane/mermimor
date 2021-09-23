@@ -1,7 +1,9 @@
 <template>
     <div>
         <h1 class="text-center pb-4">Episodes</h1>
-        <div v-if="loading"><p class="loader mx-auto"></p></div>
+        <div v-if="loading" class="text-center">
+            <img src="@/assets/brad.png" class="loader mx-auto" />
+        </div>
         <Episode
             v-for="(episode, index) in episodes"
             :key="episode.id"
