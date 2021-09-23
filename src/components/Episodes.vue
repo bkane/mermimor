@@ -3,8 +3,9 @@
         <h1 class="text-center pb-4">Episodes</h1>
         <div v-if="loading"><p class="loader mx-auto"></p></div>
         <Episode
-            v-for="episode in episodes"
+            v-for="(episode, index) in episodes"
             :key="episode.id"
+            :id="index"
             :name="episode.name"
             :date="episode.date"
             :eliminations="episode.eliminations"

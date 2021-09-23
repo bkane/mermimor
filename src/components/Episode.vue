@@ -1,22 +1,33 @@
 <template>
-    <div class="card pb-3">
+    <div class="card mb-3 col-md col-lg-8 col-xl-6 mx-auto">
         <div class="card-body">
             <h3 class="card-title">{{ name }}</h3>
-            <p class="card-text">
+            <p class="card-text d-none d-md-block">
                 <small class="text-muted">Air date: {{ date }}</small>
             </p>
-            <h4 v-for="elimination in eliminations" :key="elimination">Eliminated: {{ elimination }}</h4>
-
-            <div class="col-md col-lg-8 col-xl-6">
-                <div class="row striped-row bordered" v-for="survivor in survivors_with_filtered_events" :key="survivor.id">
-                    <div class="col-4">{{ survivor.name }}</div>
-                    <div class="col-6">
+            <h5>
+                Eliminated: <span class="fs-6">{{ eliminations.join(", ") }}</span>
+            </h5>
+        </div>
+        <div class="card-footer p-0">
+            <h3
+                class="btn btn-secondary mb-0 accordion-button"
+                data-bs-toggle="collapse"
+                :data-bs-target="'#eventsTable' + id"
+                :class="{ collapsed: id != 0 }"
+            >
+                View All Events
+            </h3>
+            <div class="accordion-collapse collapse" :id="'eventsTable' + id" :class="{ show: id == 0 }">
+                <div class="row striped-row bordered mx-0" v-for="survivor in survivors_with_filtered_events" :key="survivor.id">
+                    <div class="col-4 align-self-center">{{ survivor.name }}</div>
+                    <div class="col-6 align-self-center">
                         <div v-if="survivor.episode_events.length > 0">
                             <div class="row" v-for="event in survivor.episode_events" :key="event.id">
                                 <div class="col">
                                     <span class="badge event text-wrap" :class="event.css_class">{{ event.name }}</span>
                                 </div>
-                                <div class="col-1 text-start">{{ event.points }}</div>
+                                <div class="col-1 text-start align-self-center">{{ event.points }}</div>
                             </div>
                         </div>
                         <div v-else>
@@ -35,7 +46,7 @@
 <script>
 export default {
     name: "Episode",
-    props: ["name", "date", "eliminations", "survivors_with_filtered_events"]
+    props: ["name", "date", "eliminations", "survivors_with_filtered_events", "id"]
 };
 </script>
 
@@ -45,6 +56,7 @@ export default {
     border-width: 1px;
     border-style: solid;
 }
+
 .votedout {
     background: black;
 }
@@ -52,6 +64,7 @@ export default {
 .event {
     background: darkslategrey;
     color: whitesmoke;
+    margin: 0.1em;
 }
 
 .win-reward {
