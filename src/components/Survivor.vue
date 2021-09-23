@@ -19,7 +19,7 @@
                     <p class="text-center" v-if="team_names.filter(t => t.id == team_id)[0]">
                         {{ team_names.filter(t => t.id == team_id)[0]?.name }}
                     </p>
-                    <p class="text-muted" v-else><em>Undrafted</em></p>
+                    <p class="text-center text-muted" v-else><em>Undrafted</em></p>
                 </div>
             </div>
 
