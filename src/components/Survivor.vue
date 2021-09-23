@@ -1,7 +1,7 @@
 <template>
     <!-- <div class="col-lg-4 col-md-6 col-sm-12 flex-grow-0 flex-shrink-0"> -->
     <div class="col">
-        <div class="card pb-3 mx-auto" style="width: 18rem">
+        <div class="card mb-3 mx-auto" style="width: 18rem">
             <!-- <img src="..." class="card-img-top" alt="..."> -->
             <div class="card-body">
                 <img v-if="photo_url" :src="photo_url" class="img-fluid" :class="{ eliminated: eliminated }" />
@@ -10,45 +10,23 @@
 
                 <!-- Tribes -->
                 <div class="text-center">
-                    <span v-for="tribe in tribes" :key="tribe.name" :class="tribe" class="badge m-1">
-                        {{ tribe }}
-                    </span>
+                    <span v-for="tribe in tribes" :key="tribe.name" :class="tribe" class="badge m-1"> {{ tribe }}</span>
+                    <span>- {{ points }} pts</span>
                 </div>
-
-                <!-- Points -->
-                <p class="card-text text-center">{{ points }} pts</p>
 
                 <!-- Draft team -->
                 <div>
-                    <p class="" v-if="team_names.filter(t => t.id == team_id)[0]">
-                        Team:
+                    <p class="text-center" v-if="team_names.filter(t => t.id == team_id)[0]">
                         {{ team_names.filter(t => t.id == team_id)[0]?.name }}
                     </p>
-                    <p class="text-muted" v-else>Team: <em>undrafted</em></p>
+                    <p class="text-muted" v-else><em>Undrafted</em></p>
                 </div>
+            </div>
 
-                <!-- Voted out episode -->
-                <p v-if="eliminated">
-                    Voted out:
-                    {{ episode_names.filter(e => e.id == eliminated)[0].name }}
-                </p>
-
-                <!-- Age and Bio -->
-                <!-- <div class="accordion">
-                    <div class="accordion-item">
-                        <p class="accordion-header">
-                            <button class="accordion-button collapsed p-1" type="button" data-bs-toggle="collapse" :data-bs-target="'#bio' + id">
-                                View Bio
-                            </button>
-                        </p>
-                        <div class="accordion-collapse collapse" :id="'bio' + id">
-                            <div class="accordion-body">
-                                <p>Age: {{age}}</p>
-                                <p>{{bio}}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
+            <!-- Eliminated episode -->
+            <div v-if="eliminated" class="card-footer text-center text-muted">
+                Eliminated:
+                {{ episode_names.filter(e => e.id == eliminated)[0].name }}
             </div>
         </div>
     </div>
@@ -62,7 +40,7 @@ export default {
 </script>
 
 <style>
-.votedout {
+.eliminated {
     filter: grayscale(100%);
 }
 
