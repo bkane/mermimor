@@ -6,7 +6,7 @@
                     <img src="@/assets/jeff.png" height="64" alt="jeffff" class="d-inline-block align-bottom px-3" />
                     <div class="vstack">
                         <div class="display-5 py-0">Mermimor</div>
-                        <div class="navbar-text fs-6 fw-lighter fst-italic py-0">come on in guys</div>
+                        <div class="navbar-text fs-6 fw-lighter fst-italic py-0">come on in</div>
                     </div>
                 </div>
             </a>
