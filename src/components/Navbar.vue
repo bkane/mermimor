@@ -6,7 +6,9 @@
                     <img src="@/assets/jeff.png" height="64" alt="jeffff" class="d-inline-block align-bottom px-3" />
                     <div class="vstack">
                         <div class="display-5 py-0">Mermimor</div>
-                        <div class="navbar-text fs-6 fw-lighter fst-italic py-0">come on in</div>
+                        <div class="navbar-text fs-6 fw-lighter fst-italic py-0">
+                            come on in <span class="text-decoration-line-through">guys</span>
+                        </div>
                     </div>
                 </div>
             </a>
@@ -15,7 +17,7 @@
             </button>
 
             <nav class="collapse navbar-collapse" id="navbarNavDropdown" ref="navbarMenuCollapse">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav text-end">
                     <li class="navbar-item">
                         <router-link to="/" class="nav-link navbar-link">Standings</router-link>
                     </li>
