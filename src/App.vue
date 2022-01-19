@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-        <Navbar />
+        <Navbar :nextSeasonCountdown="new Date('2022-03-09T20:00:00.000-05:00')" />
         <section class="container mt-5">
             <router-view></router-view>
         </section>

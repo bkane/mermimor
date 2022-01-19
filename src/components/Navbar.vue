@@ -34,11 +34,21 @@
             </nav>
         </div>
     </nav>
+
+    <div v-if="nextSeasonCountdown">
+        <div class="pt-2">
+            <Countdown :targetDate="nextSeasonCountdown" targetName="Season 42" />
+        </div>
+    </div>
 </template>
 
 <script>
+import Countdown from "./Countdown.vue";
+
 export default {
     name: "Navbar",
+    props: ["nextSeasonCountdown"],
+    components: { Countdown },
     watch: {
         $route() {
             this.$refs.navbarMenuCollapse.classList.remove("show");
