@@ -5,6 +5,6 @@ import App from './App.vue'
 const app = createApp(App)
 app.use(router)
 
-app.config.globalProperties.seasonTitle = "Season 41";
+app.config.globalProperties.seasonTitle = "Season 42";
 
 app.mount('#app')

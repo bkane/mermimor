@@ -44,6 +44,22 @@ export default {
     filter: grayscale(100%);
 }
 
+/* Season 42 */
+.Ika {
+    background: rgb(77, 90, 212);
+    color: rgb(255, 255, 255);
+}
+
+.Taku {
+    background: rgb(209, 153, 48);
+    color: rgb(255, 255, 255);
+}
+
+.Vati {
+    background: rgb(80, 204, 117);
+    color: rgb(255, 255, 255);
+}
+
 /* Season 41 */
 .Ua {
     background: rgb(114, 196, 125);
