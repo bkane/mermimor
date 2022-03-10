@@ -35,7 +35,7 @@
         </div>
     </nav>
 
-    <div v-if="nextSeasonCountdown">
+    <div v-if="nextSeasonCountdown > Date.now()">
         <div class="pt-2">
             <Countdown :targetDate="nextSeasonCountdown" targetName="Season 42" />
         </div>
