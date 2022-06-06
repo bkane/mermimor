@@ -39,7 +39,8 @@ export default {
     },
     methods: {
         async fetchData() {
-            const scoringRequest = await axios.get("api/scoring");
+            let season = this.$route.params.season || this.defaultSeason;
+            const scoringRequest = await axios.get(`api/${season}/scoring`);
             this.scoringRules = scoringRequest.data;
             console.log(this.scoringRules);
 

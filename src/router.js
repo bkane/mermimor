@@ -1,31 +1,32 @@
-import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router'
-import Standings from "./components/Standings.vue"
-import Episodes from "./components/Episodes.vue"
-import Survivors from "./components/Survivors.vue"
-import Scoring from "./components/Scoring.vue"
+import { createRouter, createWebHistory, createWebHashHistory } from "vue-router";
+import Standings from "./components/Standings.vue";
+import Episodes from "./components/Episodes.vue";
+import Survivors from "./components/Survivors.vue";
+import Scoring from "./components/Scoring.vue";
 
 export default createRouter({
-    history: createWebHashHistory('/mermimor/'),
+    history: createWebHashHistory("/mermimor/"),
     routes: [
         {
-            path: '/',
-            name: 'Standings',
+            path: "/:season(\\d+)/",
+            name: "Standings",
             component: Standings
         },
         {
-            path: '/episodes',
-            name: 'Episodes',
+            path: "/:season(\\d+)/episodes",
+            name: "Episodes",
             component: Episodes
         },
         {
-            path: '/survivors',
-            name: 'Survivors',
+            path: "/:season(\\d+)/survivors",
+            name: "Survivors",
             component: Survivors
         },
         {
-            path: '/scoring',
-            name: 'Scoring',
+            path: "/:season(\\d+)/scoring",
+            name: "Scoring",
             component: Scoring
-        }
+        },
+        { path: "/:pathMatch(.*)*", redirect: "/42/" }
     ]
-})
+});

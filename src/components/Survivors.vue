@@ -50,21 +50,23 @@ export default {
     },
     methods: {
         async fetchData() {
-            const teamsRequest = await axios.get("api/teams");
+            let season = this.$route.params.season || this.defaultSeason;
+
+            const teamsRequest = await axios.get(`api/${season}/teams`);
             const teams = teamsRequest.data;
             this.team_names = teams.map(t => {
                 return { id: t.id, name: t.name };
             });
             console.log(this.team_names);
 
-            const episodesRequest = await axios.get("api/episodes");
+            const episodesRequest = await axios.get(`api/${season}/episodes`);
             const episodes = episodesRequest.data;
             this.episode_names = episodes.map(e => {
                 return { id: e.id, name: e.name };
             });
             console.log(this.episode_names);
 
-            const survivorsRequest = await axios.get("api/survivors");
+            const survivorsRequest = await axios.get(`api/${season}/survivors`);
             this.survivors = survivorsRequest.data;
             console.log(this.survivors);
 

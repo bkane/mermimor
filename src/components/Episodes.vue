@@ -34,7 +34,8 @@ export default {
     methods: {
         async fetchData() {
             console.log("base url: " + axios.defaults.baseURL);
-            const episodesRequest = await axios.get("api/episodes");
+            let season = this.$route.params.season || this.defaultSeason;
+            const episodesRequest = await axios.get(`api/${season}/episodes`);
             this.episodes = episodesRequest.data;
             console.log(this.episodes);
 

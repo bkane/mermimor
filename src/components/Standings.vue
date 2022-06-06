@@ -1,6 +1,6 @@
 <template>
     <div class="row px-2 mb-5">
-        <h1 class="text-center mb-5">{{ seasonTitle }} Standings</h1>
+        <h1 class="text-center mb-5">Season {{ $route.params.season || defaultSeason }} Standings</h1>
 
         <div style="max-width: 720px" class="mx-auto">
             <table class="table table-striped">
@@ -39,7 +39,9 @@ export default {
     },
     methods: {
         async fetchData() {
-            const teamsRequest = await axios.get("api/teams");
+            let season = this.$route.params.season || this.defaultSeason;
+            console.log(`fetching season ${season}...`);
+            const teamsRequest = await axios.get(`api/${season}/teams`);
             this.teams = teamsRequest.data;
             console.log(this.teams);
 
@@ -47,6 +49,7 @@ export default {
         }
     },
     async created() {
+        console.log("hello");
         await this.fetchData();
     }
 };

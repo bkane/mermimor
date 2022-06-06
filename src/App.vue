@@ -2,7 +2,10 @@
     <div class="home">
         <Navbar :nextSeasonCountdown="new Date('2022-03-09T20:00:00.000-05:00')" />
         <section class="container mt-5">
-            <router-view></router-view>
+            <!-- Use :key="$route.path" to reload components when the route param changes:
+                https://vueschool.io/lessons/how-to-rerender-components-when-vue-router-params-changes 
+                -->
+            <router-view :key="$route.path"></router-view>
         </section>
     </div>
 </template>
@@ -17,7 +20,6 @@ export default {
         Navbar
     },
     async created() {
-        console.log(`created ${this.seasonTitle}`);
         axios.defaults.baseURL = process.env.VUE_APP_API_BASE || "nah";
     }
 };

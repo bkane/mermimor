@@ -19,16 +19,32 @@
             <nav class="collapse navbar-collapse" id="navbarNavDropdown" ref="navbarMenuCollapse">
                 <ul class="navbar-nav text-end">
                     <li class="navbar-item">
-                        <router-link to="/" class="nav-link navbar-link">Standings</router-link>
+                        <router-link
+                            :to="{ name: 'Standings', params: { season: $route.params.season || this.defaultSeason } }"
+                            class="nav-link navbar-link"
+                            >Standings</router-link
+                        >
                     </li>
                     <li class="navbar-item">
-                        <router-link to="/episodes" class="nav-link">Episodes</router-link>
+                        <router-link
+                            :to="{ name: 'Episodes', params: { season: $route.params.season || this.defaultSeason } }"
+                            class="nav-link navbar-link"
+                            >Episodes</router-link
+                        >
                     </li>
                     <li class="navbar-item">
-                        <router-link to="/survivors" class="nav-link">Survivors</router-link>
+                        <router-link
+                            :to="{ name: 'Survivors', params: { season: $route.params.season || this.defaultSeason } }"
+                            class="nav-link navbar-link"
+                            >Survivors</router-link
+                        >
                     </li>
                     <li class="navbar-item">
-                        <router-link to="/scoring" class="nav-link">Scoring</router-link>
+                        <router-link
+                            :to="{ name: 'Scoring', params: { season: $route.params.season || this.defaultSeason } }"
+                            class="nav-link navbar-link"
+                            >Scoring</router-link
+                        >
                     </li>
                 </ul>
             </nav>
