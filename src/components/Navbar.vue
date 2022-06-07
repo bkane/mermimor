@@ -63,7 +63,6 @@
                             aria-labelledby="navbarDropdownMenuLink"
                             style="max-width: 200px;"
                         >
-                            <router-link :to="{ name: 'Standings', params: { season: 43 } }" class="dropdown-item">Season 43</router-link>
                             <router-link :to="{ name: 'Standings', params: { season: 42 } }" class="dropdown-item">Season 42</router-link>
                             <router-link :to="{ name: 'Standings', params: { season: 41 } }" class="dropdown-item">Season 41</router-link>
                         </div>
