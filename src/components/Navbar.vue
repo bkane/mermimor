@@ -46,6 +46,28 @@
                             >Scoring</router-link
                         >
                     </li>
+                    <li class="navbar-item dropdown">
+                        <a
+                            class="nav-link dropdown-toggle"
+                            href="#"
+                            id="navbarDropdownMenuLink"
+                            data-bs-toggle="dropdown"
+                            data-bs-display="inline"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                        >
+                            Season {{ $route.params.season }}
+                        </a>
+                        <div
+                            class="dropdown-menu dropdown-menu-dark dropdown-menu-end text-end ms-auto"
+                            aria-labelledby="navbarDropdownMenuLink"
+                            style="max-width: 200px;"
+                        >
+                            <router-link :to="{ name: 'Standings', params: { season: 43 } }" class="dropdown-item">Season 43</router-link>
+                            <router-link :to="{ name: 'Standings', params: { season: 42 } }" class="dropdown-item">Season 42</router-link>
+                            <router-link :to="{ name: 'Standings', params: { season: 41 } }" class="dropdown-item">Season 41</router-link>
+                        </div>
+                    </li>
                 </ul>
             </nav>
         </div>
