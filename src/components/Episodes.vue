@@ -4,6 +4,7 @@
         <div v-if="loading" class="text-center">
             <img src="@/assets/brad.png" class="loader mx-auto" />
         </div>
+        <div v-if="!loading && (episodes == undefined || episodes.length == 0)"><p class="text-center">Nothing yet.</p></div>
         <Episode
             v-for="(episode, index) in episodes"
             :key="episode.id"

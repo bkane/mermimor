@@ -63,8 +63,14 @@
                             aria-labelledby="navbarDropdownMenuLink"
                             style="max-width: 200px;"
                         >
-                            <router-link :to="{ name: 'Standings', params: { season: 42 } }" class="dropdown-item">Season 42</router-link>
-                            <router-link :to="{ name: 'Standings', params: { season: 41 } }" class="dropdown-item">Season 41</router-link>
+                            <router-link
+                                v-for="season in seasonsList"
+                                :key="season.name"
+                                :to="{ name: 'Standings', params: { season: season.id } }"
+                                class="dropdown-item"
+                            >
+                                {{ season.name }}</router-link
+                            >
                         </div>
                     </li>
                 </ul>
@@ -72,23 +78,56 @@
         </div>
     </nav>
 
-    <div v-if="nextSeasonCountdown > Date.now()">
+    <div v-if="currentSeason && currentSeason.airDate > Date.now()">
         <div class="pt-2">
-            <Countdown :targetDate="nextSeasonCountdown" targetName="Season 42" />
+            <Countdown :targetDate="currentSeason.airDate" :targetName="currentSeason.name" />
         </div>
     </div>
 </template>
 
 <script>
+import axios from "axios";
 import Countdown from "./Countdown.vue";
 
 export default {
     name: "Navbar",
-    props: ["nextSeasonCountdown"],
     components: { Countdown },
+    data() {
+        return {
+            seasonsList: [],
+            currentSeason: {}
+        };
+    },
+    methods: {
+        updateCountdown() {
+            let seasonID = this.$route.params.season || this.defaultSeason;
+            this.currentSeason = this.seasonsList.find(s => s.id == seasonID);
+
+            if (this.currentSeason != undefined) {
+                console.log(
+                    `Current season is ${seasonID}. Season Data: ${this.currentSeason.name}, ${this.currentSeason.airDate}, ${this.currentSeason.id}`
+                );
+            } else {
+                console.log(`Current season is ${seasonID}, but season data has not been retrieved yet.`);
+            }
+        },
+        async fetchData() {
+            const seasonsListRequest = await axios.get("api/seasons");
+            this.seasonsList = seasonsListRequest.data.map(s => {
+                return { id: s.id, name: s.name, airDate: new Date(s.airDate) };
+            });
+
+            console.log(this.seasonsList);
+        }
+    },
+    async created() {
+        await this.fetchData();
+        this.updateCountdown();
+    },
     watch: {
         $route() {
             this.$refs.navbarMenuCollapse.classList.remove("show");
+            this.updateCountdown();
         }
     }
 };

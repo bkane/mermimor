@@ -4,6 +4,7 @@
         <div v-if="loading" class="text-center">
             <img src="@/assets/brad.png" class="loader mx-auto" />
         </div>
+        <div v-if="!loading && (survivors == undefined || survivors.length == 0)"><p class="text-center">Nothing yet.</p></div>
         <div
             class="
                 row row-cols-1 row-cols-md-2 row-cols-lg-3

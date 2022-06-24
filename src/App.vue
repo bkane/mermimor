@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-        <Navbar :nextSeasonCountdown="new Date('2022-03-09T20:00:00.000-05:00')" />
+        <Navbar />
         <section class="container mt-5">
             <!-- Use :key="$route.path" to reload components when the route param changes:
                 https://vueschool.io/lessons/how-to-rerender-components-when-vue-router-params-changes 

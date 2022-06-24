@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="alert alert-primary col-md-8 col-lg-6 mx-auto text-center">
-            <p class="mb-0 h3">{{ days }} day(s), {{ hours }} hour(s), {{ minutes }} minute(s)</p>
+            <p v-if="timeRemaining > 0" class="mb-0 h3">{{ days }} day(s), {{ hours }} hour(s), {{ minutes }} minute(s)</p>
             <p class="mb-0 small">{{ targetName }} begins {{ targetDate.toLocaleString() }}</p>
         </div>
     </div>

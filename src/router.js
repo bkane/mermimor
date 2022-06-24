@@ -27,6 +27,6 @@ export default createRouter({
             name: "Scoring",
             component: Scoring
         },
-        { path: "/:pathMatch(.*)*", redirect: "/42/" }
+        { path: "/:pathMatch(.*)*", redirect: "/43/" }
     ]
 });
