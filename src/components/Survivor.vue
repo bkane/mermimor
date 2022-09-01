@@ -44,6 +44,21 @@ export default {
     filter: grayscale(100%);
 }
 
+/* Season 43 */
+.Coco {
+    background: rgb(66, 164, 221);
+    color: rgb(255, 255, 255);
+}
+
+.Vesi {
+    background: rgb(228, 74, 28);
+}
+
+.Baka {
+    background: rgb(148, 219, 90);
+    color: rgb(78, 78, 78);
+}
+
 /* Season 42 */
 .Ika {
     background: rgb(77, 90, 212);
