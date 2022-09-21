@@ -55,7 +55,7 @@ export default {
 }
 
 .Baka {
-    background: rgb(148, 219, 90);
+    background: rgb(221, 236, 87);
     color: rgb(78, 78, 78);
 }
 
