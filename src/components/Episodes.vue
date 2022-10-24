@@ -13,6 +13,7 @@
             :date="episode.date"
             :eliminations="episode.eliminations"
             :survivors_with_filtered_events="episode.survivors_with_filtered_events"
+            :advantages_names="advantages_names"
         />
     </div>
 </template>
@@ -29,6 +30,7 @@ export default {
     data() {
         return {
             episodes: [],
+            advantages_names: [],
             loading: true
         };
     },
@@ -38,7 +40,21 @@ export default {
             let season = this.$route.params.season || this.defaultSeason;
             const episodesRequest = await axios.get(`api/${season}/episodes`);
             this.episodes = episodesRequest.data;
+            console.log("episodes: ");
             console.log(this.episodes);
+
+            const advantagesRequest = await axios.get(`api/${season}/advantages`);
+            const advantages = advantagesRequest.data;
+            console.log("advantages: ");
+            console.log(advantages);
+
+            if (advantages != undefined && advantages.length > 0) {
+                this.advantages_names = advantages.map(a => {
+                    return { id: a.id, name: a.name };
+                });
+                console.log("advantage names: ");
+                console.log(this.advantages_names);
+            }
 
             this.loading = false;
         }

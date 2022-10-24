@@ -41,6 +41,13 @@
                     </li>
                     <li class="navbar-item">
                         <router-link
+                            :to="{ name: 'Advantages', params: { season: $route.params.season || this.defaultSeason } }"
+                            class="nav-link navbar-link"
+                            >Advantages</router-link
+                        >
+                    </li>
+                    <li class="navbar-item">
+                        <router-link
                             :to="{ name: 'Scoring', params: { season: $route.params.season || this.defaultSeason } }"
                             class="nav-link navbar-link"
                             >Scoring</router-link

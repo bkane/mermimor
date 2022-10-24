@@ -3,6 +3,7 @@ import Standings from "./components/Standings.vue";
 import Episodes from "./components/Episodes.vue";
 import Survivors from "./components/Survivors.vue";
 import Scoring from "./components/Scoring.vue";
+import Advantages from "./components/Advantages.vue";
 
 export default createRouter({
     history: createWebHashHistory("/mermimor/"),
@@ -21,6 +22,11 @@ export default createRouter({
             path: "/:season(\\d+)/survivors",
             name: "Survivors",
             component: Survivors
+        },
+        {
+            path: "/:season(\\d+)/advantages",
+            name: "Advantages",
+            component: Advantages
         },
         {
             path: "/:season(\\d+)/scoring",

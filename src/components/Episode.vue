@@ -25,9 +25,17 @@
                         <div v-if="survivor.episode_events.length > 0">
                             <div class="row" v-for="event in survivor.episode_events" :key="event.id">
                                 <div class="col">
-                                    <span class="badge event text-wrap" :class="event.css_class">{{ event.name }}</span>
+                                    <span class="badge event text-wrap" :class="event.css_class">
+                                        {{ event.name }}
+                                        <span v-if="event.advantageEarned && advantages_names.length > 0">
+                                            ({{ advantages_names.filter(a => a.id == event.advantageEarned)[0].name }})
+                                        </span>
+                                        <span v-if="event.advantageLost && advantages_names.length > 0">
+                                            ({{ advantages_names.filter(a => a.id == event.advantageLost)[0].name }})
+                                        </span>
+                                    </span>
                                 </div>
-                                <div class="col-1 text-start align-self-center">{{ event.points }}</div>
+                                <div class="col-2 text-center align-self-center">{{ event.points }}</div>
                             </div>
                         </div>
                         <div v-else>
@@ -46,7 +54,7 @@
 <script>
 export default {
     name: "Episode",
-    props: ["name", "date", "eliminations", "survivors_with_filtered_events", "id"]
+    props: ["name", "date", "eliminations", "survivors_with_filtered_events", "id", "advantages_names"]
 };
 </script>
 
